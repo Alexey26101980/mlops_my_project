@@ -30,7 +30,12 @@ stages:
     outs:
     - data/stage4
   train:
-    cmd: train.max_depth -d scripts/model_scripts/dt.py -d data/stage4/train.csv -o
-      models/model.pkl python3 scripts/model_scripts/dt.py data/stage4/train.csv models/model.pkl
+    cmd: python3 scripts/model_scripts/dt.py data/stage4/train.csv model.pkl
     params:
+    - train.max_depth
     - train.seed
+    deps:
+    - data/stage4/train.csv
+    - scripts/model_scripts/dt.py
+    outs:
+    - models/model.pkl
