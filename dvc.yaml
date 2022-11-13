@@ -29,3 +29,8 @@ stages:
     - split.split_ratio
     outs:
     - data/stage4
+  train:
+    cmd: train.max_depth -d scripts/model_scripts/dt.py -d data/stage4/train.csv -o
+      models/model.pkl python3 scripts/model_scripts/dt.py data/stage4/train.csv models/model.pkl
+    params:
+    - train.seed
