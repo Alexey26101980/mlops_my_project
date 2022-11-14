@@ -70,12 +70,12 @@ stages:
       size: 725
     params:
       params.yaml:
-        train.max_depth: 5
+        train.max_depth: 10
         train.seed: 42
     outs:
     - path: models/model.pkl
-      md5: d8033c7ad9651b8e7d0524454bba531b
-      size: 5472
+      md5: 91da6bc37bc307d8a3f00f97b7d27e6f
+      size: 22435
   evaluate:
     cmd: python3 scripts/model_scripts/evaluate.py data/stage4/test.csv models/model.pkl
     deps:
@@ -83,12 +83,12 @@ stages:
       md5: c6e24d6f7b23527870cc3f02464618a4
       size: 2918
     - path: models/model.pkl
-      md5: d8033c7ad9651b8e7d0524454bba531b
-      size: 5472
+      md5: 91da6bc37bc307d8a3f00f97b7d27e6f
+      size: 22435
     - path: scripts/model_scripts/evaluate.py
       md5: 1920a6fd118f71d73fbe8d99539fef96
       size: 566
     outs:
     - path: evaluate/score.json
-      md5: 981ae891dccc50f018846bb9f5669618
+      md5: e9b16447b324ed21e844fa23794765cb
       size: 29
